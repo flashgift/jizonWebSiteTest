@@ -3,77 +3,60 @@
     <head>
         <meta charset="utf-8">
         <style>
-            .JizonStyleList, .JizonStyleList-iteminlist ul{
-                list-style:none;
-                display:contents;
+            :root{
+                --line-color: rgb(100, 110, 129);
             }
-            .JizonStyleList li:not(.JizonStyleList-iteminlist){
-                display: flex;
+            .JizonStyleList, .JizonStyleList ul{
+                display: contents;
+                list-style: none;
+            }
+            .JizonStyleList li{
+                border-left:1px solid var(--line-color);
+                margin-left: 20px;
+                padding-left: 20px;
+                position:relative;
+            }
+            .JizonStyleList li:before{
+                content:'';
+                position:absolute;
+                left:-1px;
+                top:-1px;
+                height:24px;
+                width:15px;
+
+                border-left:1px solid var(--line-color);
+                border-bottom:1px solid var(--line-color);
+                border-bottom-left-radius: 5px;
+            }
+            .JizonStyleList span{
+                transition-property: text-indent;
+                transition-duration: 0.1s;
+            }
+            .JizonStyleList span:hover{
+                text-indent:10px;
+            }
+            .JizonStyleList li:last-child{
+                border-left:1px solid transparent;
+            }
+            .JizonStyleList span{
+                display:flex;
                 flex-direction: row;
-                flex-wrap: nowrap;
-                justify-content: flex-start;
-                min-height:48px;
-
-                margin-top:-1px;
-            }
-            .JizonStyleList li>#item-name{
-                display:flex;
-                flex: 1 1 auto;
-                align-items:center;
-            }
-            
-            .JizonStyleList li>#item-name{
-                transition-property: text-indent;
-                padding-left:16px;
-                transition-duration: 0.1s;
-            }
-
-            .JizonStyleList-iteminlist>span>#list-name{
-                transition-property: text-indent;
-                padding-left:7px;
-                transition-duration: 0.1s;
-            }
-
-            .JizonStyleList li:hover>#item-name, .JizonStyleList-iteminlist:hover>span>#list-name{
-                text-indent: 10px;
-            }
-
-            .JizonStyleList-iteminlist{
-                margin-left: 14px;
-            }
-
-            .JizonStyleList-iteminlist>ul>.JizonStyleList-iteminlist{
-                margin-left: 25px;
-            }
-
-            .JizonStyleList-iteminlist>#primaryContainer{
-                display:flex;
-                flex: 1 1 auto;
-                align-items:center;
+                align-items: center;
                 height:48px;
-                margin-left:-14px;
+                position: relative;
             }
-
-            .JizonStyleList-iteminlist>ul>.JizonStyleList-iteminlist>#primaryContainer{
-                display:flex;
-                flex: 1 1 auto;
-                align-items:center;
-                height:48px;
-                margin-left:-25px;
+            .JizonStyleList span #tree-child-icon{
+                margin-left: 18px;
+                margin-right: 10px;
             }
-            
-            .JizonStyleList-iteminlist ul>li>#treeIcon{
-                content:url("icons/list_item_cross_icon.svg");
+            .JizonStyleList span #tree-type-icon{
+                margin-left: 5px;
+                margin-right: 5px;
             }
-
-            .JizonStyleList-iteminlist>ul>.JizonStyleList-iteminlist>#primaryContainer>#treeIcon{
-                content:url("icons/list_item_last_item_icon.svg");
+            .JizonStyleList span #tree-name{
+                margin-left: 5px;
+                margin-right: 5px;
             }
-
-            .JizonStyleList-iteminlist ul>li:last-child>#treeIcon{
-                content:url("icons/list_item_last_item_icon.svg");
-            }
-            
         </style>
     </head>
     <body>
@@ -82,93 +65,60 @@
             <div style="background-color:red; display: flex;">
                 <div style="width:300px; max-height:1024px; overflow:auto;background-color:rgb(175, 187, 202);">
                     <ul class="JizonStyleList">
-                        <li >
-                            <img id="treeIcon" aria-label="아이콘">
-                            <span id="item-name">ASDF</span>
-                        </li>
-                        <li class="JizonStyleList-iteminlist">
-                            <span id="primaryContainer" >
-                                <img id="treeIcon" aria-label="아이콘">
-                                <span style="margin-left:9px;">></span>
-                                <span id="list-name">ASDF</span>
-                            </span>
-                            <ul>
-                                <li >
-                                    <img id="treeIcon" aria-label="아이콘">
-                                    <span id="item-name" >ASDF</span>
-                                </li>
-                                <li class="JizonStyleList-iteminlist">
-                                    <span id="primaryContainer" >
-                                        <img id="treeIcon" aria-label="아이콘">
-                                        <span style="margin-left:9px;">></span>
-                                        <span id="list-name">ASDF</span>
+                        <span>
+                                <img id="tree-child-icon" src="icons/treechild_icon.svg">
+                                <img id="tree-type-icon" src="icons/jizon_icon.svg">
+                                <span id="tree-name">head</span>
+                        </span>
+                        <ul >
+                            <li>
+                                <span>
+                                    <img id="tree-type-icon" src="icons/jizon_icon.svg">
+                                    <span id="tree-name">ㅁㄴㅇㄹ</span>
+                                </span>
+                            </li>
+                            <li>
+                                <span>
+                                    <img id="tree-type-icon" src="icons/jizon_icon.svg">
+                                    <span id="tree-name">ㅁㄴㅇㄹ</span>
+                                </span>
+                            </li>
+                            <li>
+                                <ul >
+                                    <span>
+                                            <img id="tree-child-icon" src="icons/treechild_icon.svg">
+                                            <img id="tree-type-icon" src="icons/jizon_icon.svg">
+                                            <span id="tree-name">head</span>
                                     </span>
-                                    <ul>
-                                        <li >
-                                            <img id="treeIcon" aria-label="아이콘">
-                                            <span id="item-name" >ASDF</span>
-                                        </li>
-                                        <li >
-                                            <img id="treeIcon" aria-label="아이콘">
-                                            <span id="item-name" >ASDF</span>
-                                        </li>
-                                        <li >
-                                            <img id="treeIcon" aria-label="아이콘">
-                                            <span id="item-name" >ASDF</span>
-                                        </li>
-                                        <li class="JizonStyleList-iteminlist">
-                                            <span id="primaryContainer" >
-                                                <img id="treeIcon" aria-label="아이콘">
-                                                <span style="margin-left:9px;">></span>
-                                                <span id="list-name">ASDF</span>
+                                    <ul >
+                                        <li>
+                                            <span>
+                                                <img id="tree-type-icon" src="icons/jizon_icon.svg">
+                                                <span id="tree-name">ㅁㄴㅇㄹ</span>
                                             </span>
-                                            <ul>
-                                                <li >
-                                                    <img id="treeIcon" aria-label="아이콘">
-                                                    <span id="item-name" >ASDF</span>
-                                                </li>
-                                                <li >
-                                                    <img id="treeIcon" aria-label="아이콘">
-                                                    <span id="item-name" >ASDF</span>
-                                                </li>
-                                                <li >
-                                                    <img id="treeIcon" aria-label="아이콘">
-                                                    <span id="item-name" >ASDF</span>
-                                                </li>
-                                                <li >
-                                                    <img id="treeIcon" aria-label="아이콘">
-                                                    <span id="item-name" >ASDF</span>
-                                                </li>
-                                                <li >
-                                                    <img id="treeIcon" aria-label="아이콘">
-                                                    <span id="item-name" >ASDF</span>
-                                                </li>
-                                            </ul>
                                         </li>
-                                        <li >
-                                            <img id="treeIcon" aria-label="아이콘">
-                                            <span id="item-name" >ASDF</span>
+                                        <li>
+                                            <span>
+                                                <img id="tree-type-icon" src="icons/jizon_icon.svg">
+                                                <span id="tree-name">ㅁㄴㅇㄹ</span>
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                <img id="tree-type-icon" src="icons/jizon_icon.svg">
+                                                <span id="tree-name">ㅁㄴㅇㄹ</span>
+                                            </span>
                                         </li>
                                     </ul>
-                                </li>
-                                <li >
-                                    <img id="treeIcon" aria-label="아이콘">
-                                    <span id="item-name" >ASDF</span>
-                                </li>
-                                <li >
-                                    <img id="treeIcon" aria-label="아이콘">
-                                    <span id="item-name" >ASDF</span>
-                                </li>
-                                <li >
-                                    <img id="treeIcon" aria-label="아이콘">
-                                    <span id="item-name" >ASDF</span>
-                                </li>
-                            </ul>
-                        </li>
-                        <li >
-                            <img id="treeIcon" aria-label="아이콘">
-                            <span id="item-name" >ASDF</span>
-                        </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span>
+                                    <img id="tree-type-icon" src="icons/jizon_icon.svg">
+                                    <span id="tree-name">ㅁㄴㅇㄹ</span>
+                                </span>
+                            </li>
+                        </ul>
                     </ul>
                 </div>
                 <div style="flex: 1 1 auto; background-color:rgb(0, 119, 255);">세번째 영역</div>
