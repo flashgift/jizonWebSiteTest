@@ -6,9 +6,16 @@
             :root{
                 --line-color: rgb(100, 110, 129);
             }
-            .JizonStyleList, .JizonStyleList ul{
-                display: contents;
+            .JizonStyleList{
+                display:contents;
                 list-style: none;
+                padding-left: 0px;
+            }
+            .JizonStyleList>ul{
+                justify-self:flex-start;
+                align-self: flex-end;
+                list-style: none;
+                padding-left: 0px;
             }
             .JizonStyleList li{
                 border-left:1px solid var(--line-color);
@@ -28,13 +35,6 @@
                 border-bottom:1px solid var(--line-color);
                 border-bottom-left-radius: 5px;
             }
-            .JizonStyleList span{
-                transition-property: text-indent;
-                transition-duration: 0.1s;
-            }
-            .JizonStyleList span:hover{
-                text-indent:10px;
-            }
             .JizonStyleList li:last-child{
                 border-left:1px solid transparent;
             }
@@ -45,15 +45,20 @@
                 height:48px;
                 position: relative;
             }
-            .JizonStyleList span #tree-child-icon{
+
+            .tree-child-icon{
                 margin-left: 18px;
                 margin-right: 10px;
+
+                transition-property: transform;
+                transition-duration: 0.1s;
             }
-            .JizonStyleList span #tree-type-icon{
+            .JizonStyleList .tree-type-icon::before{
+                content:url("icons/jizon_icon.svg");
                 margin-left: 5px;
                 margin-right: 5px;
             }
-            .JizonStyleList span #tree-name{
+            .JizonStyleList span .tree-name{
                 margin-left: 5px;
                 margin-right: 5px;
             }
@@ -63,60 +68,47 @@
         <div style="background-color:red; display: flex; flex-direction:column;">
             <div style="flex: 1 1 300px; background-color:#CF0">퀘에엑</div>
             <div style="background-color:red; display: flex;">
-                <div style="width:300px; max-height:1024px; overflow:auto;background-color:rgb(175, 187, 202);">
+                <div style="width:300px; height:1024px; overflow:auto;background-color:rgb(175, 187, 202);">
                     <ul class="JizonStyleList">
                         <span>
-                                <img id="tree-child-icon" src="icons/treechild_icon.svg">
-                                <img id="tree-type-icon" src="icons/jizon_icon.svg">
-                                <span id="tree-name">head</span>
+                            <span class="tree-child-icon">
+                                <img src="icons/treechild_icon.svg" >
+                            </span>
+                            <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
                         </span>
                         <ul >
                             <li>
-                                <span>
-                                    <img id="tree-type-icon" src="icons/jizon_icon.svg">
-                                    <span id="tree-name">ㅁㄴㅇㄹ</span>
-                                </span>
+                                <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
                             </li>
                             <li>
+                                <ul class="JizonStyleList">
                                 <span>
-                                    <img id="tree-type-icon" src="icons/jizon_icon.svg">
-                                    <span id="tree-name">ㅁㄴㅇㄹ</span>
-                                </span>
-                            </li>
-                            <li>
-                                <ul >
-                                    <span>
-                                            <img id="tree-child-icon" src="icons/treechild_icon.svg">
-                                            <img id="tree-type-icon" src="icons/jizon_icon.svg">
-                                            <span id="tree-name">head</span>
+                                    <span class="tree-child-icon">
+                                        <img src="icons/treechild_icon.svg" >
                                     </span>
-                                    <ul >
-                                        <li>
-                                            <span>
-                                                <img id="tree-type-icon" src="icons/jizon_icon.svg">
-                                                <span id="tree-name">ㅁㄴㅇㄹ</span>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <img id="tree-type-icon" src="icons/jizon_icon.svg">
-                                                <span id="tree-name">ㅁㄴㅇㄹ</span>
-                                            </span>
-                                        </li>
-                                        <li>
-                                            <span>
-                                                <img id="tree-type-icon" src="icons/jizon_icon.svg">
-                                                <span id="tree-name">ㅁㄴㅇㄹ</span>
-                                            </span>
-                                        </li>
-                                    </ul>
+                                    <span class="tree-type-icon">head</span>
+                                </span>
+                                <ul >
+                                    <li>
+                                        <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                                    </li>
+                                    <li>
+                                        <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                                    </li>
+                                    <li>
+                                        <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                                    </li>
+                                    <li>
+                                        <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                                    </li>
                                 </ul>
+                            </ul>
                             </li>
                             <li>
-                                <span>
-                                    <img id="tree-type-icon" src="icons/jizon_icon.svg">
-                                    <span id="tree-name">ㅁㄴㅇㄹ</span>
-                                </span>
+                                <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                            </li>
+                            <li>
+                                <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
                             </li>
                         </ul>
                     </ul>
@@ -124,5 +116,7 @@
                 <div style="flex: 1 1 auto; background-color:rgb(0, 119, 255);">세번째 영역</div>
             </div>
         </div>
+
+        <script type="text/javascript" src="js/collapseJizonStyleList.js"></script>
     </body>
 </html>
