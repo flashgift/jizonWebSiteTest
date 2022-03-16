@@ -6,16 +6,18 @@
             :root{
                 --line-color: rgb(100, 110, 129);
             }
-            .JizonStyleList{
-                display:contents;
+            .JizonStyleList, .JizonStyleList ul{
+                display:flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                overflow-y:hidden;
                 list-style: none;
                 padding-left: 0px;
+                user-select: none;
             }
-            .JizonStyleList>ul{
-                justify-self:flex-start;
-                align-self: flex-end;
-                list-style: none;
-                padding-left: 0px;
+            .JizonStyleList ul{
+                transition-property: height;
+                transition-duration: 0.2s;
             }
             .JizonStyleList li{
                 border-left:1px solid var(--line-color);
@@ -81,28 +83,70 @@
                                 <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
                             </li>
                             <li>
-                                <ul class="JizonStyleList">
-                                <span>
-                                    <span class="tree-child-icon">
-                                        <img src="icons/treechild_icon.svg" >
-                                    </span>
-                                    <span class="tree-type-icon">head</span>
-                                </span>
                                 <ul >
-                                    <li>
-                                        <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
-                                    </li>
-                                    <li>
-                                        <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
-                                    </li>
-                                    <li>
-                                        <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
-                                    </li>
-                                    <li>
-                                        <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
-                                    </li>
+                                    <span>
+                                        <span class="tree-child-icon">
+                                            <img src="icons/treechild_icon.svg" >
+                                        </span>
+                                        <span class="tree-type-icon">head</span>
+                                    </span>
+                                    <ul >
+                                        <li>
+                                            <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                                        </li>
+                                        <li>
+                                            <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                                        </li>
+                                        <li>
+                                            <ul >
+                                                <span>
+                                                    <span class="tree-child-icon">
+                                                        <img src="icons/treechild_icon.svg" >
+                                                    </span>
+                                                    <span class="tree-type-icon">head</span>
+                                                </span>
+                                                <ul >
+                                                    <li>
+                                                        <ul >
+                                                            <span>
+                                                                <span class="tree-child-icon">
+                                                                    <img src="icons/treechild_icon.svg" >
+                                                                </span>
+                                                                <span class="tree-type-icon">head</span>
+                                                            </span>
+                                                            <ul >
+                                                                <li>
+                                                                    <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                                                                </li>
+                                                                <li>
+                                                                    <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                                                                </li>
+                                                            </ul>
+                                                        </ul>
+                                                    </li>
+                                                    <li>
+                                                        <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                                                    </li>
+                                                </ul>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
+                                        </li>
+                                    </ul>
                                 </ul>
-                            </ul>
                             </li>
                             <li>
                                 <span class="tree-type-icon">ㅁㄴㅇㄹ</span>
